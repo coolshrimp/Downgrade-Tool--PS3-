@@ -39,9 +39,7 @@ Partial Class Main
         Me.NandJoinSplit = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.WriteModeDD = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.NandTypeDD = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ReadButton = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -79,7 +77,6 @@ Partial Class Main
         Me.DownloadRogeroDowngradeto355 = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.ComPortDD = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.FlashTeensy2plusNAND = New System.Windows.Forms.Button()
         Me.FlashTeensy2plusNOR = New System.Windows.Forms.Button()
@@ -92,6 +89,9 @@ Partial Class Main
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SelectDiff = New System.Windows.Forms.OpenFileDialog()
+        Me.WriteModeDD = New System.Windows.Forms.ComboBox()
+        Me.NandTypeDD = New System.Windows.Forms.ComboBox()
+        Me.ComPortDD = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -285,20 +285,6 @@ Partial Class Main
         Me.Label3.TabIndex = 63
         Me.Label3.Text = "Write Mode"
         '
-        'WriteModeDD
-        '
-        Me.WriteModeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "WriteModeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.WriteModeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WriteModeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WriteModeDD.ForeColor = System.Drawing.Color.Black
-        Me.WriteModeDD.FormattingEnabled = True
-        Me.WriteModeDD.Items.AddRange(New Object() {"Write", "WriteWord", "DiffWrite"})
-        Me.WriteModeDD.Location = New System.Drawing.Point(94, 32)
-        Me.WriteModeDD.Name = "WriteModeDD"
-        Me.WriteModeDD.Size = New System.Drawing.Size(121, 21)
-        Me.WriteModeDD.TabIndex = 62
-        Me.WriteModeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.WriteModeDD
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -307,21 +293,6 @@ Partial Class Main
         Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 61
         Me.Label2.Text = "Nand Type"
-        '
-        'NandTypeDD
-        '
-        Me.NandTypeDD.AutoCompleteCustomSource.AddRange(New String() {"NOR", "NAND"})
-        Me.NandTypeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "NandTypeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.NandTypeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.NandTypeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NandTypeDD.ForeColor = System.Drawing.Color.Black
-        Me.NandTypeDD.FormattingEnabled = True
-        Me.NandTypeDD.Items.AddRange(New Object() {"NOR", "NAND"})
-        Me.NandTypeDD.Location = New System.Drawing.Point(10, 32)
-        Me.NandTypeDD.Name = "NandTypeDD"
-        Me.NandTypeDD.Size = New System.Drawing.Size(78, 21)
-        Me.NandTypeDD.TabIndex = 60
-        Me.NandTypeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.NandTypeDD
         '
         'GroupBox1
         '
@@ -724,20 +695,6 @@ Partial Class Main
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Select COM Port"
         '
-        'ComPortDD
-        '
-        Me.ComPortDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "ComPortDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.ComPortDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComPortDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComPortDD.ForeColor = System.Drawing.Color.Black
-        Me.ComPortDD.FormattingEnabled = True
-        Me.ComPortDD.Items.AddRange(New Object() {"COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9", "COM10", "COM11", "COM12"})
-        Me.ComPortDD.Location = New System.Drawing.Point(11, 20)
-        Me.ComPortDD.Name = "ComPortDD"
-        Me.ComPortDD.Size = New System.Drawing.Size(98, 21)
-        Me.ComPortDD.TabIndex = 60
-        Me.ComPortDD.Text = Global.Downgrade_Tool.My.MySettings.Default.ComPortDD
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.FlashTeensy2plusNAND)
@@ -852,6 +809,48 @@ Partial Class Main
         '
         Me.SelectDiff.DefaultExt = "bin"
         Me.SelectDiff.Filter = ".Txt File|*.txt|All Files|*.*"
+        '
+        'WriteModeDD
+        '
+        Me.WriteModeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "WriteModeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.WriteModeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WriteModeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WriteModeDD.ForeColor = System.Drawing.Color.Black
+        Me.WriteModeDD.FormattingEnabled = True
+        Me.WriteModeDD.Items.AddRange(New Object() {"Write", "WriteWord", "DiffWrite"})
+        Me.WriteModeDD.Location = New System.Drawing.Point(94, 32)
+        Me.WriteModeDD.Name = "WriteModeDD"
+        Me.WriteModeDD.Size = New System.Drawing.Size(121, 21)
+        Me.WriteModeDD.TabIndex = 62
+        Me.WriteModeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.WriteModeDD
+        '
+        'NandTypeDD
+        '
+        Me.NandTypeDD.AutoCompleteCustomSource.AddRange(New String() {"NOR", "NAND"})
+        Me.NandTypeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "NandTypeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.NandTypeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.NandTypeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NandTypeDD.ForeColor = System.Drawing.Color.Black
+        Me.NandTypeDD.FormattingEnabled = True
+        Me.NandTypeDD.Items.AddRange(New Object() {"NOR", "NAND"})
+        Me.NandTypeDD.Location = New System.Drawing.Point(10, 32)
+        Me.NandTypeDD.Name = "NandTypeDD"
+        Me.NandTypeDD.Size = New System.Drawing.Size(78, 21)
+        Me.NandTypeDD.TabIndex = 60
+        Me.NandTypeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.NandTypeDD
+        '
+        'ComPortDD
+        '
+        Me.ComPortDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "ComPortDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.ComPortDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComPortDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComPortDD.ForeColor = System.Drawing.Color.Black
+        Me.ComPortDD.FormattingEnabled = True
+        Me.ComPortDD.Location = New System.Drawing.Point(11, 20)
+        Me.ComPortDD.Name = "ComPortDD"
+        Me.ComPortDD.Size = New System.Drawing.Size(98, 21)
+        Me.ComPortDD.TabIndex = 60
+        Me.ComPortDD.Text = Global.Downgrade_Tool.My.MySettings.Default.ComPortDD
         '
         'Main
         '
