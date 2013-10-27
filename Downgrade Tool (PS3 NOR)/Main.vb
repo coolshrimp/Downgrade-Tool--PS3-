@@ -30,23 +30,9 @@ Public Class Main
     Public ComPort As String = My.Settings.ComPortDD
     Public NandVerify As String = " "
 
-    Private Shared Function CurrentDomainAssemblyResolve(sender As Object, args As ResolveEventArgs) As Assembly
-        If String.IsNullOrEmpty(args.Name) Then
-            Throw New Exception("DLL Read Failure (Nothing to load!)")
-        End If
-        Dim name As String = String.Format("{0}.dll", args.Name.Split(","c)(0))
-        Using stream = Assembly.GetAssembly(GetType(Main)).GetManifestResourceStream(String.Format("{0}.{1}", GetType(Main).Namespace, name))
-            If stream IsNot Nothing Then
-                Dim data = New Byte(stream.Length - 1) {}
-                stream.Read(data, 0, data.Length)
-                Return Assembly.Load(data)
-            End If
-            Throw New Exception(String.Format("Can't find external nor internal {0}!", name))
-        End Using
-    End Function
+    
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf CurrentDomainAssemblyResolve
         ComPortDD.DataSource = SerialPort.GetPortNames()
         Me.Text = Me.Text + " v" + My.Application.Info.Version.ToString
         InstLoc = Directory.GetCurrentDirectory()
