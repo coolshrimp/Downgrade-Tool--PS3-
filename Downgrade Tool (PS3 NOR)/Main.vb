@@ -30,6 +30,7 @@ Public Class Main
 
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Me.Text = Me.Text + " v" + My.Application.Info.Version.ToString
         InstLoc = Directory.GetCurrentDirectory()
         ReadTimes = 0
         ImageSelection.SelectedIndex = 0

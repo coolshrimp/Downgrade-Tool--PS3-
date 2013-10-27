@@ -73,6 +73,7 @@ Partial Class Main
         Me.DownloadMinVerChk = New System.Windows.Forms.Button()
         Me.DownloadToggleQA = New System.Windows.Forms.Button()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.DownloadRogero450CFW = New System.Windows.Forms.Button()
         Me.DownloadRogero446CFW = New System.Windows.Forms.Button()
         Me.DownloadRogeroCEX355CFW = New System.Windows.Forms.Button()
         Me.DownloadRogeroDowngradeto355 = New System.Windows.Forms.Button()
@@ -91,7 +92,6 @@ Partial Class Main
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.SelectDiff = New System.Windows.Forms.OpenFileDialog()
-        Me.DownloadRogero450CFW = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -662,6 +662,15 @@ Partial Class Main
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Firmwares"
         '
+        'DownloadRogero450CFW
+        '
+        Me.DownloadRogero450CFW.Location = New System.Drawing.Point(7, 22)
+        Me.DownloadRogero450CFW.Name = "DownloadRogero450CFW"
+        Me.DownloadRogero450CFW.Size = New System.Drawing.Size(212, 27)
+        Me.DownloadRogero450CFW.TabIndex = 85
+        Me.DownloadRogero450CFW.Text = "Download Rogero 4.50 CFW"
+        Me.DownloadRogero450CFW.UseVisualStyleBackColor = True
+        '
         'DownloadRogero446CFW
         '
         Me.DownloadRogero446CFW.Location = New System.Drawing.Point(7, 55)
@@ -844,15 +853,6 @@ Partial Class Main
         Me.SelectDiff.DefaultExt = "bin"
         Me.SelectDiff.Filter = ".Txt File|*.txt|All Files|*.*"
         '
-        'DownloadRogero450CFW
-        '
-        Me.DownloadRogero450CFW.Location = New System.Drawing.Point(7, 22)
-        Me.DownloadRogero450CFW.Name = "DownloadRogero450CFW"
-        Me.DownloadRogero450CFW.Size = New System.Drawing.Size(212, 27)
-        Me.DownloadRogero450CFW.TabIndex = 85
-        Me.DownloadRogero450CFW.Text = "Download Rogero 4.50 CFW"
-        Me.DownloadRogero450CFW.UseVisualStyleBackColor = True
-        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -868,7 +868,7 @@ Partial Class Main
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Main"
-        Me.Text = "Downgrade Tool - PS3 (V1.03)"
+        Me.Text = "Downgrade Tool - PS3"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.GroupBox11.ResumeLayout(False)
