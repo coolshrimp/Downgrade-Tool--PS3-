@@ -18,7 +18,6 @@ Imports Microsoft.VisualBasic
 Imports AutoUpdaterDotNET
 Imports System.IO.Ports
 Imports System.Reflection
-
 #End Region
 
 Public Class Main
@@ -30,30 +29,15 @@ Public Class Main
     Public ComPort As String = My.Settings.ComPortDD
     Public NandVerify As String = " "
 
-    Private Shared Function CurrentDomainAssemblyResolve(sender As Object, args As ResolveEventArgs) As Assembly
-        If String.IsNullOrEmpty(args.Name) Then
-            Throw New Exception("DLL Read Failure (Nothing to load!)")
-        End If
-        Dim name As String = String.Format("{0}.dll", args.Name.Split(","c)(0))
-        Using stream = Assembly.GetAssembly(GetType(Main)).GetManifestResourceStream(String.Format("{0}.{1}", GetType(Main).Namespace, name))
-            If stream IsNot Nothing Then
-                Dim data = New Byte(stream.Length - 1) {}
-                stream.Read(data, 0, data.Length)
-                Return Assembly.Load(data)
-            End If
-            Throw New Exception(String.Format("Can't find external nor internal {0}!", name))
-        End Using
-    End Function
-
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf CurrentDomainAssemblyResolve
+        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf LoadDLLFromStream
+        AutoUpdater.Start("Http://coolshrimpmodz.com/HostedFiles/DowngradeTool/DowngradeToolVersion.xml")
         ComPortDD.DataSource = SerialPort.GetPortNames()
         Me.Text = Me.Text + " v" + My.Application.Info.Version.ToString
         InstLoc = Directory.GetCurrentDirectory()
         ReadTimes = 0
         ImageSelection.SelectedIndex = 0
         ComPort = My.Settings.ComPortDD
-        AutoUpdater.Start("Http://coolshrimpmodz.com/HostedFiles/DowngradeTool/DowngradeToolVersion.xml")
     End Sub
 
 #Region "Nand Tab"
@@ -430,7 +414,7 @@ Public Class Main
                         Catch ex As Exception
                         End Try
                     End If
-                    End If
+                End If
             End If
         End If
         SelectFile.FileName = ""
@@ -738,6 +722,102 @@ Public Class Main
     Private Sub LogoImg_Click(sender As Object, e As EventArgs) Handles LogoImg.Click
         System.Diagnostics.Process.Start("http://coolshrimpmodz.com")    'link to Creator Site
     End Sub
+
+    Private Function LoadDLLFromStream( _
+    ByVal sender As Object, _
+    ByVal args As System.ResolveEventArgs) As System.Reflection.Assembly
+
+        Dim resourceName As String = "Downgrade_Tool." & New AssemblyName(args.Name).Name & ".dll"
+        'had to use this line to debug and figure out why it didnt load at first
+        Dim resources() As String = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames
+        Using stream = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)
+            Dim assemblyData(CInt(stream.Length - 1)) As Byte
+            stream.Read(assemblyData, 0, assemblyData.Length)
+            Return System.Reflection.Assembly.Load(assemblyData)
+        End Using
+    End Function
 #End Region
-    
+
+    Private Sub GetInfoButton_Click(sender As Object, e As EventArgs) Handles GetInfoButton.Click
+        If File.Exists(NandInfoFile.Text) = False Then
+            MsgBox("Cannot Find Selected Nand File")
+        Else
+            File.Copy(NandInfoFile.Text, "NandInfo.bin", True)
+
+
+
+
+
+            SaveNandInfoButton.Visible = True
+        End If
+    End Sub
+
+    Private Sub SaveNandInfoButton_Click(sender As Object, e As EventArgs) Handles SaveNandInfoButton.Click
+        Dim SaveInfo As StreamWriter
+        'Save  File Box
+        SaveFile.Title = "Select Save Location"
+        SaveFile.FileName = "Nand Info"
+        SaveFile.Filter = "Txt Files (*.txt)|*.txt|All Files (*.*)|*.*"
+        SaveFile.FilterIndex = 1
+        SaveFile.ShowDialog()
+        My.Computer.FileSystem.CurrentDirectory = InstLoc
+        If SaveFile.FileName = "" Then ' If No File Was Selected
+            MsgBox("No Save Location Was Selected")
+        Else
+            SaveInfo = New StreamWriter(SaveFile.FileName)
+            SaveInfo.WriteLine("CPU Key: " & InfoCPUKey.Text)
+            SaveInfo.WriteLine("DVD Key: " & DVDKey.Text)
+            SaveInfo.WriteLine("DVD Type: " & DVDType.Text)
+            SaveInfo.WriteLine("Console ID: " & ConsoleID.Text)
+            SaveInfo.WriteLine("Serial #: " & SerialNumber.Text)
+            SaveInfo.WriteLine("Region: " & ConsoleRegion.Text)
+            SaveInfo.WriteLine("Manufacture Date: " & MFRDate.Text)
+            SaveInfo.WriteLine("Console Type: " & ConsoleTypeLable.Text)
+            SaveInfo.Close()
+            SaveFile.FileName = ""
+        End If
+    End Sub
+
+    Private Sub InfoNandSelect_Click(sender As Object, e As EventArgs) Handles InfoNandSelect.Click
+        SelectFile.Filter = "Bin Files (*.bin)|*.bin|All Files (*.*)|*.*"
+        SelectFile.FilterIndex = 1
+        SelectFile.CheckFileExists = True
+        SelectFile.RestoreDirectory = True
+        If (SelectFile.ShowDialog() = DialogResult.OK) And (SelectFile.CheckFileExists = True) Then
+            NandInfoFile.Text = SelectFile.FileName
+            GetInfoButton.Enabled = True
+        Else
+            Call ClearInfo()
+            GetInfoButton.Enabled = False
+        End If
+        SelectFile.FileName = ""
+    End Sub
+
+    Private Sub InfoNandFile_TextChanged(sender As Object, e As EventArgs) Handles NandInfoFile.TextChanged
+        Call ClearInfo()
+        If File.Exists(NandInfoFile.Text) = True Then
+            GetInfoButton.Enabled = True
+        Else
+            GetInfoButton.Enabled = False
+        End If
+    End Sub
+
+    Private Sub ClearInfo()
+        DVDType.Text = ""
+        ConsoleID.Text = ""
+        MFRDate.Text = ""
+        DVDKey.Text = ""
+        ConsoleRegion.Text = ""
+        KVType.Text = ""
+        SerialNumber.Text = ""
+        ConsoleTypeLable.Text = ""
+        CBVersion.Text = ""
+        SaveNandInfoButton.Visible = False
+
+        If File.Exists("NandInfo.bin") = True Then
+            File.Delete("NandInfo.bin")
+        End If
+    End Sub
+
+
 End Class

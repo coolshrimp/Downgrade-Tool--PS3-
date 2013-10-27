@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Chip.ico" />
+    <None Include="Resources\save.png" />
     <EmbeddedResource Include="Resources\AutoUpdater.NET.dll" />
     <None Include="Resources\Nand Clip.jpg" />
     <None Include="Resources\Soft QSB.JPG" />

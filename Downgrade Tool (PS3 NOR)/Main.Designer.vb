@@ -39,7 +39,9 @@ Partial Class Main
         Me.NandJoinSplit = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.WriteModeDD = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.NandTypeDD = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ReadButton = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -59,7 +61,6 @@ Partial Class Main
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.CheckPatchNand = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.PreviewImage = New System.Windows.Forms.PictureBox()
         Me.ImageSelection = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -77,6 +78,7 @@ Partial Class Main
         Me.DownloadRogeroDowngradeto355 = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.ComPortDD = New System.Windows.Forms.ComboBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.FlashTeensy2plusNAND = New System.Windows.Forms.Button()
         Me.FlashTeensy2plusNOR = New System.Windows.Forms.Button()
@@ -85,13 +87,36 @@ Partial Class Main
         Me.InstallpySerial = New System.Windows.Forms.Button()
         Me.InstallTeensyDriver = New System.Windows.Forms.Button()
         Me.DeviceMangerButton = New System.Windows.Forms.Button()
+        Me.SelectDiff = New System.Windows.Forms.OpenFileDialog()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.CBVersion = New System.Windows.Forms.TextBox()
+        Me.ConsoleID = New System.Windows.Forms.TextBox()
+        Me.KVType = New System.Windows.Forms.TextBox()
+        Me.InfoCPUKey = New System.Windows.Forms.TextBox()
+        Me.NandInfoFile = New System.Windows.Forms.TextBox()
+        Me.ConsoleTypeLable = New System.Windows.Forms.Label()
+        Me.CBVersionLable = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ConsoleIDLable = New System.Windows.Forms.Label()
+        Me.SerialLable = New System.Windows.Forms.Label()
+        Me.KVTypeLable = New System.Windows.Forms.Label()
+        Me.DVDTypeLable = New System.Windows.Forms.Label()
+        Me.DVDKeyLable = New System.Windows.Forms.Label()
+        Me.InfoCPUKeyLable = New System.Windows.Forms.Label()
+        Me.InfoNandLable = New System.Windows.Forms.Label()
+        Me.InfoNandSelect = New System.Windows.Forms.Button()
+        Me.GetInfoButton = New System.Windows.Forms.Button()
+        Me.DVDType = New System.Windows.Forms.TextBox()
+        Me.SerialNumber = New System.Windows.Forms.TextBox()
+        Me.DVDKey = New System.Windows.Forms.TextBox()
+        Me.MFRDate = New System.Windows.Forms.TextBox()
+        Me.ConsoleRegion = New System.Windows.Forms.TextBox()
+        Me.RegionLable = New System.Windows.Forms.Label()
         Me.LogoImg = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.SelectDiff = New System.Windows.Forms.OpenFileDialog()
-        Me.WriteModeDD = New System.Windows.Forms.ComboBox()
-        Me.NandTypeDD = New System.Windows.Forms.ComboBox()
-        Me.ComPortDD = New System.Windows.Forms.ComboBox()
+        Me.SaveNandInfoButton = New System.Windows.Forms.PictureBox()
+        Me.PreviewImage = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -103,7 +128,6 @@ Partial Class Main
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
@@ -112,9 +136,12 @@ Partial Class Main
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
         CType(Me.LogoImg, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SelectFile
@@ -140,6 +167,7 @@ Partial Class Main
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
@@ -285,6 +313,20 @@ Partial Class Main
         Me.Label3.TabIndex = 63
         Me.Label3.Text = "Write Mode"
         '
+        'WriteModeDD
+        '
+        Me.WriteModeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "WriteModeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.WriteModeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WriteModeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WriteModeDD.ForeColor = System.Drawing.Color.Black
+        Me.WriteModeDD.FormattingEnabled = True
+        Me.WriteModeDD.Items.AddRange(New Object() {"Write", "WriteWord", "DiffWrite"})
+        Me.WriteModeDD.Location = New System.Drawing.Point(94, 32)
+        Me.WriteModeDD.Name = "WriteModeDD"
+        Me.WriteModeDD.Size = New System.Drawing.Size(121, 21)
+        Me.WriteModeDD.TabIndex = 62
+        Me.WriteModeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.WriteModeDD
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -293,6 +335,21 @@ Partial Class Main
         Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 61
         Me.Label2.Text = "Nand Type"
+        '
+        'NandTypeDD
+        '
+        Me.NandTypeDD.AutoCompleteCustomSource.AddRange(New String() {"NOR", "NAND"})
+        Me.NandTypeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "NandTypeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.NandTypeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.NandTypeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NandTypeDD.ForeColor = System.Drawing.Color.Black
+        Me.NandTypeDD.FormattingEnabled = True
+        Me.NandTypeDD.Items.AddRange(New Object() {"NOR", "NAND"})
+        Me.NandTypeDD.Location = New System.Drawing.Point(10, 32)
+        Me.NandTypeDD.Name = "NandTypeDD"
+        Me.NandTypeDD.Size = New System.Drawing.Size(78, 21)
+        Me.NandTypeDD.TabIndex = 60
+        Me.NandTypeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.NandTypeDD
         '
         'GroupBox1
         '
@@ -503,16 +560,6 @@ Partial Class Main
         Me.TabPage3.Text = "Images"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'PreviewImage
-        '
-        Me.PreviewImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PreviewImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PreviewImage.Location = New System.Drawing.Point(9, 37)
-        Me.PreviewImage.Name = "PreviewImage"
-        Me.PreviewImage.Size = New System.Drawing.Size(727, 325)
-        Me.PreviewImage.TabIndex = 1
-        Me.PreviewImage.TabStop = False
-        '
         'ImageSelection
         '
         Me.ImageSelection.AutoCompleteCustomSource.AddRange(New String() {"JDN-001 Pinout"})
@@ -695,6 +742,19 @@ Partial Class Main
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Select COM Port"
         '
+        'ComPortDD
+        '
+        Me.ComPortDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "ComPortDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.ComPortDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComPortDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComPortDD.ForeColor = System.Drawing.Color.Black
+        Me.ComPortDD.FormattingEnabled = True
+        Me.ComPortDD.Location = New System.Drawing.Point(11, 20)
+        Me.ComPortDD.Name = "ComPortDD"
+        Me.ComPortDD.Size = New System.Drawing.Size(98, 21)
+        Me.ComPortDD.TabIndex = 60
+        Me.ComPortDD.Text = Global.Downgrade_Tool.My.MySettings.Default.ComPortDD
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.FlashTeensy2plusNAND)
@@ -778,6 +838,310 @@ Partial Class Main
         Me.DeviceMangerButton.Text = "Show Device Manger"
         Me.DeviceMangerButton.UseVisualStyleBackColor = True
         '
+        'SelectDiff
+        '
+        Me.SelectDiff.DefaultExt = "bin"
+        Me.SelectDiff.Filter = ".Txt File|*.txt|All Files|*.*"
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.CBVersion)
+        Me.TabPage6.Controls.Add(Me.ConsoleID)
+        Me.TabPage6.Controls.Add(Me.KVType)
+        Me.TabPage6.Controls.Add(Me.InfoCPUKey)
+        Me.TabPage6.Controls.Add(Me.NandInfoFile)
+        Me.TabPage6.Controls.Add(Me.ConsoleTypeLable)
+        Me.TabPage6.Controls.Add(Me.CBVersionLable)
+        Me.TabPage6.Controls.Add(Me.Label6)
+        Me.TabPage6.Controls.Add(Me.ConsoleIDLable)
+        Me.TabPage6.Controls.Add(Me.SerialLable)
+        Me.TabPage6.Controls.Add(Me.KVTypeLable)
+        Me.TabPage6.Controls.Add(Me.DVDTypeLable)
+        Me.TabPage6.Controls.Add(Me.DVDKeyLable)
+        Me.TabPage6.Controls.Add(Me.InfoCPUKeyLable)
+        Me.TabPage6.Controls.Add(Me.InfoNandLable)
+        Me.TabPage6.Controls.Add(Me.InfoNandSelect)
+        Me.TabPage6.Controls.Add(Me.GetInfoButton)
+        Me.TabPage6.Controls.Add(Me.DVDType)
+        Me.TabPage6.Controls.Add(Me.SerialNumber)
+        Me.TabPage6.Controls.Add(Me.DVDKey)
+        Me.TabPage6.Controls.Add(Me.MFRDate)
+        Me.TabPage6.Controls.Add(Me.ConsoleRegion)
+        Me.TabPage6.Controls.Add(Me.RegionLable)
+        Me.TabPage6.Controls.Add(Me.SaveNandInfoButton)
+        Me.TabPage6.ForeColor = System.Drawing.Color.Black
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(747, 371)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Nand Info"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'CBVersion
+        '
+        Me.CBVersion.BackColor = System.Drawing.Color.White
+        Me.CBVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CBVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBVersion.Location = New System.Drawing.Point(306, 172)
+        Me.CBVersion.Name = "CBVersion"
+        Me.CBVersion.ReadOnly = True
+        Me.CBVersion.Size = New System.Drawing.Size(46, 21)
+        Me.CBVersion.TabIndex = 74
+        '
+        'ConsoleID
+        '
+        Me.ConsoleID.BackColor = System.Drawing.Color.White
+        Me.ConsoleID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ConsoleID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConsoleID.Location = New System.Drawing.Point(425, 198)
+        Me.ConsoleID.MaxLength = 10
+        Me.ConsoleID.Name = "ConsoleID"
+        Me.ConsoleID.ReadOnly = True
+        Me.ConsoleID.Size = New System.Drawing.Size(87, 21)
+        Me.ConsoleID.TabIndex = 70
+        '
+        'KVType
+        '
+        Me.KVType.BackColor = System.Drawing.Color.White
+        Me.KVType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.KVType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.KVType.Location = New System.Drawing.Point(254, 172)
+        Me.KVType.Name = "KVType"
+        Me.KVType.ReadOnly = True
+        Me.KVType.Size = New System.Drawing.Size(26, 21)
+        Me.KVType.TabIndex = 59
+        '
+        'InfoCPUKey
+        '
+        Me.InfoCPUKey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.InfoCPUKey.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InfoCPUKey.ForeColor = System.Drawing.Color.Black
+        Me.InfoCPUKey.Location = New System.Drawing.Point(9, 115)
+        Me.InfoCPUKey.MaxLength = 32
+        Me.InfoCPUKey.Name = "InfoCPUKey"
+        Me.InfoCPUKey.Size = New System.Drawing.Size(281, 20)
+        Me.InfoCPUKey.TabIndex = 51
+        '
+        'NandInfoFile
+        '
+        Me.NandInfoFile.AllowDrop = True
+        Me.NandInfoFile.Location = New System.Drawing.Point(9, 22)
+        Me.NandInfoFile.Name = "NandInfoFile"
+        Me.NandInfoFile.Size = New System.Drawing.Size(693, 20)
+        Me.NandInfoFile.TabIndex = 50
+        '
+        'ConsoleTypeLable
+        '
+        Me.ConsoleTypeLable.AutoSize = True
+        Me.ConsoleTypeLable.BackColor = System.Drawing.Color.Transparent
+        Me.ConsoleTypeLable.Enabled = False
+        Me.ConsoleTypeLable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConsoleTypeLable.ForeColor = System.Drawing.Color.Black
+        Me.ConsoleTypeLable.Location = New System.Drawing.Point(179, 305)
+        Me.ConsoleTypeLable.Name = "ConsoleTypeLable"
+        Me.ConsoleTypeLable.Size = New System.Drawing.Size(111, 20)
+        Me.ConsoleTypeLable.TabIndex = 75
+        Me.ConsoleTypeLable.Text = "Motherboard"
+        '
+        'CBVersionLable
+        '
+        Me.CBVersionLable.AutoSize = True
+        Me.CBVersionLable.BackColor = System.Drawing.Color.Transparent
+        Me.CBVersionLable.Enabled = False
+        Me.CBVersionLable.ForeColor = System.Drawing.Color.Black
+        Me.CBVersionLable.Location = New System.Drawing.Point(283, 176)
+        Me.CBVersionLable.Name = "CBVersionLable"
+        Me.CBVersionLable.Size = New System.Drawing.Size(24, 13)
+        Me.CBVersionLable.TabIndex = 73
+        Me.CBVersionLable.Text = "CB:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Enabled = False
+        Me.Label6.ForeColor = System.Drawing.Color.Black
+        Me.Label6.Location = New System.Drawing.Point(188, 281)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(59, 13)
+        Me.Label6.TabIndex = 72
+        Me.Label6.Text = "MFR Date:"
+        '
+        'ConsoleIDLable
+        '
+        Me.ConsoleIDLable.AutoSize = True
+        Me.ConsoleIDLable.BackColor = System.Drawing.Color.Transparent
+        Me.ConsoleIDLable.Enabled = False
+        Me.ConsoleIDLable.ForeColor = System.Drawing.Color.Black
+        Me.ConsoleIDLable.Location = New System.Drawing.Point(401, 202)
+        Me.ConsoleIDLable.Name = "ConsoleIDLable"
+        Me.ConsoleIDLable.Size = New System.Drawing.Size(21, 13)
+        Me.ConsoleIDLable.TabIndex = 69
+        Me.ConsoleIDLable.Text = "ID:"
+        '
+        'SerialLable
+        '
+        Me.SerialLable.AutoSize = True
+        Me.SerialLable.BackColor = System.Drawing.Color.Transparent
+        Me.SerialLable.Enabled = False
+        Me.SerialLable.ForeColor = System.Drawing.Color.Black
+        Me.SerialLable.Location = New System.Drawing.Point(188, 200)
+        Me.SerialLable.Name = "SerialLable"
+        Me.SerialLable.Size = New System.Drawing.Size(36, 13)
+        Me.SerialLable.TabIndex = 63
+        Me.SerialLable.Text = "Serial:"
+        '
+        'KVTypeLable
+        '
+        Me.KVTypeLable.AutoSize = True
+        Me.KVTypeLable.BackColor = System.Drawing.Color.Transparent
+        Me.KVTypeLable.Enabled = False
+        Me.KVTypeLable.ForeColor = System.Drawing.Color.Black
+        Me.KVTypeLable.Location = New System.Drawing.Point(188, 176)
+        Me.KVTypeLable.Name = "KVTypeLable"
+        Me.KVTypeLable.Size = New System.Drawing.Size(51, 13)
+        Me.KVTypeLable.TabIndex = 58
+        Me.KVTypeLable.Text = "KV Type:"
+        '
+        'DVDTypeLable
+        '
+        Me.DVDTypeLable.AutoSize = True
+        Me.DVDTypeLable.BackColor = System.Drawing.Color.Transparent
+        Me.DVDTypeLable.Enabled = False
+        Me.DVDTypeLable.ForeColor = System.Drawing.Color.Black
+        Me.DVDTypeLable.Location = New System.Drawing.Point(188, 254)
+        Me.DVDTypeLable.Name = "DVDTypeLable"
+        Me.DVDTypeLable.Size = New System.Drawing.Size(60, 13)
+        Me.DVDTypeLable.TabIndex = 57
+        Me.DVDTypeLable.Text = "DVD Type:"
+        '
+        'DVDKeyLable
+        '
+        Me.DVDKeyLable.AutoSize = True
+        Me.DVDKeyLable.BackColor = System.Drawing.Color.Transparent
+        Me.DVDKeyLable.Enabled = False
+        Me.DVDKeyLable.ForeColor = System.Drawing.Color.Black
+        Me.DVDKeyLable.Location = New System.Drawing.Point(188, 227)
+        Me.DVDKeyLable.Name = "DVDKeyLable"
+        Me.DVDKeyLable.Size = New System.Drawing.Size(54, 13)
+        Me.DVDKeyLable.TabIndex = 55
+        Me.DVDKeyLable.Text = "DVD Key:"
+        '
+        'InfoCPUKeyLable
+        '
+        Me.InfoCPUKeyLable.AutoSize = True
+        Me.InfoCPUKeyLable.BackColor = System.Drawing.Color.Transparent
+        Me.InfoCPUKeyLable.ForeColor = System.Drawing.Color.Black
+        Me.InfoCPUKeyLable.Location = New System.Drawing.Point(6, 100)
+        Me.InfoCPUKeyLable.Name = "InfoCPUKeyLable"
+        Me.InfoCPUKeyLable.Size = New System.Drawing.Size(53, 13)
+        Me.InfoCPUKeyLable.TabIndex = 54
+        Me.InfoCPUKeyLable.Text = "CPU Key:"
+        '
+        'InfoNandLable
+        '
+        Me.InfoNandLable.AutoSize = True
+        Me.InfoNandLable.BackColor = System.Drawing.Color.Transparent
+        Me.InfoNandLable.ForeColor = System.Drawing.Color.Black
+        Me.InfoNandLable.Location = New System.Drawing.Point(6, 6)
+        Me.InfoNandLable.Name = "InfoNandLable"
+        Me.InfoNandLable.Size = New System.Drawing.Size(36, 13)
+        Me.InfoNandLable.TabIndex = 53
+        Me.InfoNandLable.Text = "Nand:"
+        '
+        'InfoNandSelect
+        '
+        Me.InfoNandSelect.ForeColor = System.Drawing.Color.Black
+        Me.InfoNandSelect.Location = New System.Drawing.Point(708, 22)
+        Me.InfoNandSelect.Name = "InfoNandSelect"
+        Me.InfoNandSelect.Size = New System.Drawing.Size(28, 23)
+        Me.InfoNandSelect.TabIndex = 52
+        Me.InfoNandSelect.Text = "..."
+        Me.InfoNandSelect.UseVisualStyleBackColor = True
+        '
+        'GetInfoButton
+        '
+        Me.GetInfoButton.Enabled = False
+        Me.GetInfoButton.ForeColor = System.Drawing.Color.Black
+        Me.GetInfoButton.Location = New System.Drawing.Point(296, 48)
+        Me.GetInfoButton.Name = "GetInfoButton"
+        Me.GetInfoButton.Size = New System.Drawing.Size(125, 50)
+        Me.GetInfoButton.TabIndex = 49
+        Me.GetInfoButton.Text = "Load Info"
+        Me.GetInfoButton.UseVisualStyleBackColor = True
+        '
+        'DVDType
+        '
+        Me.DVDType.BackColor = System.Drawing.Color.White
+        Me.DVDType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DVDType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DVDType.ForeColor = System.Drawing.Color.Black
+        Me.DVDType.Location = New System.Drawing.Point(254, 250)
+        Me.DVDType.Name = "DVDType"
+        Me.DVDType.ReadOnly = True
+        Me.DVDType.Size = New System.Drawing.Size(258, 21)
+        Me.DVDType.TabIndex = 62
+        '
+        'SerialNumber
+        '
+        Me.SerialNumber.BackColor = System.Drawing.Color.White
+        Me.SerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SerialNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SerialNumber.Location = New System.Drawing.Point(254, 198)
+        Me.SerialNumber.MaxLength = 12
+        Me.SerialNumber.Name = "SerialNumber"
+        Me.SerialNumber.ReadOnly = True
+        Me.SerialNumber.Size = New System.Drawing.Size(98, 21)
+        Me.SerialNumber.TabIndex = 64
+        '
+        'DVDKey
+        '
+        Me.DVDKey.BackColor = System.Drawing.Color.White
+        Me.DVDKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DVDKey.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DVDKey.Location = New System.Drawing.Point(254, 224)
+        Me.DVDKey.MaxLength = 32
+        Me.DVDKey.Name = "DVDKey"
+        Me.DVDKey.ReadOnly = True
+        Me.DVDKey.Size = New System.Drawing.Size(258, 21)
+        Me.DVDKey.TabIndex = 61
+        '
+        'MFRDate
+        '
+        Me.MFRDate.BackColor = System.Drawing.Color.White
+        Me.MFRDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MFRDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MFRDate.ForeColor = System.Drawing.Color.Black
+        Me.MFRDate.Location = New System.Drawing.Point(253, 277)
+        Me.MFRDate.Name = "MFRDate"
+        Me.MFRDate.ReadOnly = True
+        Me.MFRDate.Size = New System.Drawing.Size(74, 21)
+        Me.MFRDate.TabIndex = 71
+        '
+        'ConsoleRegion
+        '
+        Me.ConsoleRegion.BackColor = System.Drawing.Color.White
+        Me.ConsoleRegion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ConsoleRegion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConsoleRegion.ForeColor = System.Drawing.Color.Black
+        Me.ConsoleRegion.Location = New System.Drawing.Point(440, 172)
+        Me.ConsoleRegion.Name = "ConsoleRegion"
+        Me.ConsoleRegion.ReadOnly = True
+        Me.ConsoleRegion.Size = New System.Drawing.Size(70, 21)
+        Me.ConsoleRegion.TabIndex = 60
+        '
+        'RegionLable
+        '
+        Me.RegionLable.AutoSize = True
+        Me.RegionLable.BackColor = System.Drawing.Color.Transparent
+        Me.RegionLable.Enabled = False
+        Me.RegionLable.ForeColor = System.Drawing.Color.Black
+        Me.RegionLable.Location = New System.Drawing.Point(390, 176)
+        Me.RegionLable.Name = "RegionLable"
+        Me.RegionLable.Size = New System.Drawing.Size(44, 13)
+        Me.RegionLable.TabIndex = 56
+        Me.RegionLable.Text = "Reigon:"
+        '
         'LogoImg
         '
         Me.LogoImg.BackgroundImage = Global.Downgrade_Tool.My.Resources.Resources.logo
@@ -805,52 +1169,26 @@ Partial Class Main
         Me.PictureBox1.TabIndex = 70
         Me.PictureBox1.TabStop = False
         '
-        'SelectDiff
+        'SaveNandInfoButton
         '
-        Me.SelectDiff.DefaultExt = "bin"
-        Me.SelectDiff.Filter = ".Txt File|*.txt|All Files|*.*"
+        Me.SaveNandInfoButton.BackgroundImage = Global.Downgrade_Tool.My.Resources.Resources.save
+        Me.SaveNandInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SaveNandInfoButton.Location = New System.Drawing.Point(468, 281)
+        Me.SaveNandInfoButton.Name = "SaveNandInfoButton"
+        Me.SaveNandInfoButton.Size = New System.Drawing.Size(44, 44)
+        Me.SaveNandInfoButton.TabIndex = 77
+        Me.SaveNandInfoButton.TabStop = False
+        Me.SaveNandInfoButton.Visible = False
         '
-        'WriteModeDD
+        'PreviewImage
         '
-        Me.WriteModeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "WriteModeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.WriteModeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WriteModeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WriteModeDD.ForeColor = System.Drawing.Color.Black
-        Me.WriteModeDD.FormattingEnabled = True
-        Me.WriteModeDD.Items.AddRange(New Object() {"Write", "WriteWord", "DiffWrite"})
-        Me.WriteModeDD.Location = New System.Drawing.Point(94, 32)
-        Me.WriteModeDD.Name = "WriteModeDD"
-        Me.WriteModeDD.Size = New System.Drawing.Size(121, 21)
-        Me.WriteModeDD.TabIndex = 62
-        Me.WriteModeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.WriteModeDD
-        '
-        'NandTypeDD
-        '
-        Me.NandTypeDD.AutoCompleteCustomSource.AddRange(New String() {"NOR", "NAND"})
-        Me.NandTypeDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "NandTypeDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.NandTypeDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.NandTypeDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NandTypeDD.ForeColor = System.Drawing.Color.Black
-        Me.NandTypeDD.FormattingEnabled = True
-        Me.NandTypeDD.Items.AddRange(New Object() {"NOR", "NAND"})
-        Me.NandTypeDD.Location = New System.Drawing.Point(10, 32)
-        Me.NandTypeDD.Name = "NandTypeDD"
-        Me.NandTypeDD.Size = New System.Drawing.Size(78, 21)
-        Me.NandTypeDD.TabIndex = 60
-        Me.NandTypeDD.Text = Global.Downgrade_Tool.My.MySettings.Default.NandTypeDD
-        '
-        'ComPortDD
-        '
-        Me.ComPortDD.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.Downgrade_Tool.My.MySettings.Default, "ComPortDD", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.ComPortDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComPortDD.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComPortDD.ForeColor = System.Drawing.Color.Black
-        Me.ComPortDD.FormattingEnabled = True
-        Me.ComPortDD.Location = New System.Drawing.Point(11, 20)
-        Me.ComPortDD.Name = "ComPortDD"
-        Me.ComPortDD.Size = New System.Drawing.Size(98, 21)
-        Me.ComPortDD.TabIndex = 60
-        Me.ComPortDD.Text = Global.Downgrade_Tool.My.MySettings.Default.ComPortDD
+        Me.PreviewImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PreviewImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PreviewImage.Location = New System.Drawing.Point(9, 37)
+        Me.PreviewImage.Name = "PreviewImage"
+        Me.PreviewImage.Size = New System.Drawing.Size(727, 325)
+        Me.PreviewImage.TabIndex = 1
+        Me.PreviewImage.TabStop = False
         '
         'Main
         '
@@ -882,7 +1220,6 @@ Partial Class Main
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
-        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
@@ -892,9 +1229,13 @@ Partial Class Main
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
         CType(Me.LogoImg, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -968,4 +1309,29 @@ Partial Class Main
     Friend WithEvents GroupBox12 As System.Windows.Forms.GroupBox
     Friend WithEvents SelectDiff As System.Windows.Forms.OpenFileDialog
     Friend WithEvents DownloadRogero450CFW As System.Windows.Forms.Button
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents CBVersion As System.Windows.Forms.TextBox
+    Friend WithEvents ConsoleID As System.Windows.Forms.TextBox
+    Friend WithEvents KVType As System.Windows.Forms.TextBox
+    Friend WithEvents InfoCPUKey As System.Windows.Forms.TextBox
+    Friend WithEvents NandInfoFile As System.Windows.Forms.TextBox
+    Friend WithEvents ConsoleTypeLable As System.Windows.Forms.Label
+    Friend WithEvents CBVersionLable As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents ConsoleIDLable As System.Windows.Forms.Label
+    Friend WithEvents SerialLable As System.Windows.Forms.Label
+    Friend WithEvents KVTypeLable As System.Windows.Forms.Label
+    Friend WithEvents DVDTypeLable As System.Windows.Forms.Label
+    Friend WithEvents DVDKeyLable As System.Windows.Forms.Label
+    Friend WithEvents InfoCPUKeyLable As System.Windows.Forms.Label
+    Friend WithEvents InfoNandLable As System.Windows.Forms.Label
+    Friend WithEvents InfoNandSelect As System.Windows.Forms.Button
+    Friend WithEvents GetInfoButton As System.Windows.Forms.Button
+    Friend WithEvents DVDType As System.Windows.Forms.TextBox
+    Friend WithEvents SerialNumber As System.Windows.Forms.TextBox
+    Friend WithEvents DVDKey As System.Windows.Forms.TextBox
+    Friend WithEvents MFRDate As System.Windows.Forms.TextBox
+    Friend WithEvents ConsoleRegion As System.Windows.Forms.TextBox
+    Friend WithEvents RegionLable As System.Windows.Forms.Label
+    Friend WithEvents SaveNandInfoButton As System.Windows.Forms.PictureBox
 End Class
