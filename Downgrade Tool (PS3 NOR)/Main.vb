@@ -29,9 +29,9 @@ Public Class Main
     Public ComPort As String = My.Settings.ComPortDD
     Public NandVerify As String = " "
 
+    
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf LoadDLLFromStream
-        AutoUpdater.Start("Http://coolshrimpmodz.com/HostedFiles/DowngradeTool/DowngradeToolVersion.xml")
         ComPortDD.DataSource = SerialPort.GetPortNames()
         Me.Text = Me.Text + " v" + My.Application.Info.Version.ToString
         InstLoc = Directory.GetCurrentDirectory()

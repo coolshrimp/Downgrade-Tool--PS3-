@@ -91,6 +91,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="WebFileDownloader.vb" />
     <Compile Include="Downloader.Designer.vb">
       <DependentUpon>Downloader.vb</DependentUpon>
