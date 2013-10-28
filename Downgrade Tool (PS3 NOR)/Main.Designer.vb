@@ -61,25 +61,20 @@ Partial Class Main
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.CheckPatchNand = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.CBVersion = New System.Windows.Forms.TextBox()
-        Me.ConsoleID = New System.Windows.Forms.TextBox()
-        Me.KVType = New System.Windows.Forms.TextBox()
+        Me.MACAddress = New System.Windows.Forms.TextBox()
         Me.NandInfoFile = New System.Windows.Forms.TextBox()
-        Me.ConsoleTypeLable = New System.Windows.Forms.Label()
-        Me.CBVersionLable = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ConsoleIDLable = New System.Windows.Forms.Label()
         Me.SerialLable = New System.Windows.Forms.Label()
-        Me.KVTypeLable = New System.Windows.Forms.Label()
         Me.DVDTypeLable = New System.Windows.Forms.Label()
         Me.DVDKeyLable = New System.Windows.Forms.Label()
         Me.InfoNandLable = New System.Windows.Forms.Label()
         Me.InfoNandSelect = New System.Windows.Forms.Button()
         Me.GetInfoButton = New System.Windows.Forms.Button()
-        Me.DVDType = New System.Windows.Forms.TextBox()
-        Me.SerialNumber = New System.Windows.Forms.TextBox()
-        Me.DVDKey = New System.Windows.Forms.TextBox()
-        Me.MFRDate = New System.Windows.Forms.TextBox()
+        Me.HDDSerial = New System.Windows.Forms.TextBox()
+        Me.ConsoleMotherboard = New System.Windows.Forms.TextBox()
+        Me.HDDBrand = New System.Windows.Forms.TextBox()
+        Me.LowestDowngradeVer = New System.Windows.Forms.TextBox()
         Me.ConsoleRegion = New System.Windows.Forms.TextBox()
         Me.RegionLable = New System.Windows.Forms.Label()
         Me.SaveNandInfoButton = New System.Windows.Forms.PictureBox()
@@ -549,25 +544,20 @@ Partial Class Main
         '
         'TabPage6
         '
-        Me.TabPage6.Controls.Add(Me.CBVersion)
-        Me.TabPage6.Controls.Add(Me.ConsoleID)
-        Me.TabPage6.Controls.Add(Me.KVType)
+        Me.TabPage6.Controls.Add(Me.MACAddress)
         Me.TabPage6.Controls.Add(Me.NandInfoFile)
-        Me.TabPage6.Controls.Add(Me.ConsoleTypeLable)
-        Me.TabPage6.Controls.Add(Me.CBVersionLable)
         Me.TabPage6.Controls.Add(Me.Label6)
         Me.TabPage6.Controls.Add(Me.ConsoleIDLable)
         Me.TabPage6.Controls.Add(Me.SerialLable)
-        Me.TabPage6.Controls.Add(Me.KVTypeLable)
         Me.TabPage6.Controls.Add(Me.DVDTypeLable)
         Me.TabPage6.Controls.Add(Me.DVDKeyLable)
         Me.TabPage6.Controls.Add(Me.InfoNandLable)
         Me.TabPage6.Controls.Add(Me.InfoNandSelect)
         Me.TabPage6.Controls.Add(Me.GetInfoButton)
-        Me.TabPage6.Controls.Add(Me.DVDType)
-        Me.TabPage6.Controls.Add(Me.SerialNumber)
-        Me.TabPage6.Controls.Add(Me.DVDKey)
-        Me.TabPage6.Controls.Add(Me.MFRDate)
+        Me.TabPage6.Controls.Add(Me.HDDSerial)
+        Me.TabPage6.Controls.Add(Me.ConsoleMotherboard)
+        Me.TabPage6.Controls.Add(Me.HDDBrand)
+        Me.TabPage6.Controls.Add(Me.LowestDowngradeVer)
         Me.TabPage6.Controls.Add(Me.ConsoleRegion)
         Me.TabPage6.Controls.Add(Me.RegionLable)
         Me.TabPage6.Controls.Add(Me.SaveNandInfoButton)
@@ -579,39 +569,17 @@ Partial Class Main
         Me.TabPage6.Text = "Nand Info"
         Me.TabPage6.UseVisualStyleBackColor = True
         '
-        'CBVersion
+        'MACAddress
         '
-        Me.CBVersion.BackColor = System.Drawing.Color.White
-        Me.CBVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CBVersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CBVersion.Location = New System.Drawing.Point(306, 172)
-        Me.CBVersion.Name = "CBVersion"
-        Me.CBVersion.ReadOnly = True
-        Me.CBVersion.Size = New System.Drawing.Size(46, 21)
-        Me.CBVersion.TabIndex = 74
-        '
-        'ConsoleID
-        '
-        Me.ConsoleID.BackColor = System.Drawing.Color.White
-        Me.ConsoleID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ConsoleID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConsoleID.Location = New System.Drawing.Point(425, 198)
-        Me.ConsoleID.MaxLength = 10
-        Me.ConsoleID.Name = "ConsoleID"
-        Me.ConsoleID.ReadOnly = True
-        Me.ConsoleID.Size = New System.Drawing.Size(87, 21)
-        Me.ConsoleID.TabIndex = 70
-        '
-        'KVType
-        '
-        Me.KVType.BackColor = System.Drawing.Color.White
-        Me.KVType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.KVType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.KVType.Location = New System.Drawing.Point(254, 172)
-        Me.KVType.Name = "KVType"
-        Me.KVType.ReadOnly = True
-        Me.KVType.Size = New System.Drawing.Size(26, 21)
-        Me.KVType.TabIndex = 59
+        Me.MACAddress.BackColor = System.Drawing.Color.White
+        Me.MACAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MACAddress.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MACAddress.Location = New System.Drawing.Point(255, 199)
+        Me.MACAddress.MaxLength = 10
+        Me.MACAddress.Name = "MACAddress"
+        Me.MACAddress.ReadOnly = True
+        Me.MACAddress.Size = New System.Drawing.Size(257, 21)
+        Me.MACAddress.TabIndex = 70
         '
         'NandInfoFile
         '
@@ -621,102 +589,60 @@ Partial Class Main
         Me.NandInfoFile.Size = New System.Drawing.Size(693, 20)
         Me.NandInfoFile.TabIndex = 50
         '
-        'ConsoleTypeLable
-        '
-        Me.ConsoleTypeLable.AutoSize = True
-        Me.ConsoleTypeLable.BackColor = System.Drawing.Color.Transparent
-        Me.ConsoleTypeLable.Enabled = False
-        Me.ConsoleTypeLable.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConsoleTypeLable.ForeColor = System.Drawing.Color.Black
-        Me.ConsoleTypeLable.Location = New System.Drawing.Point(179, 305)
-        Me.ConsoleTypeLable.Name = "ConsoleTypeLable"
-        Me.ConsoleTypeLable.Size = New System.Drawing.Size(111, 20)
-        Me.ConsoleTypeLable.TabIndex = 75
-        Me.ConsoleTypeLable.Text = "Motherboard"
-        '
-        'CBVersionLable
-        '
-        Me.CBVersionLable.AutoSize = True
-        Me.CBVersionLable.BackColor = System.Drawing.Color.Transparent
-        Me.CBVersionLable.Enabled = False
-        Me.CBVersionLable.ForeColor = System.Drawing.Color.Black
-        Me.CBVersionLable.Location = New System.Drawing.Point(283, 176)
-        Me.CBVersionLable.Name = "CBVersionLable"
-        Me.CBVersionLable.Size = New System.Drawing.Size(24, 13)
-        Me.CBVersionLable.TabIndex = 73
-        Me.CBVersionLable.Text = "CB:"
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Enabled = False
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(188, 281)
+        Me.Label6.Location = New System.Drawing.Point(121, 281)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(59, 13)
+        Me.Label6.Size = New System.Drawing.Size(121, 13)
         Me.Label6.TabIndex = 72
-        Me.Label6.Text = "MFR Date:"
+        Me.Label6.Text = "Lowest Downgrade Ver:"
         '
         'ConsoleIDLable
         '
         Me.ConsoleIDLable.AutoSize = True
         Me.ConsoleIDLable.BackColor = System.Drawing.Color.Transparent
-        Me.ConsoleIDLable.Enabled = False
         Me.ConsoleIDLable.ForeColor = System.Drawing.Color.Black
-        Me.ConsoleIDLable.Location = New System.Drawing.Point(401, 202)
+        Me.ConsoleIDLable.Location = New System.Drawing.Point(170, 203)
         Me.ConsoleIDLable.Name = "ConsoleIDLable"
-        Me.ConsoleIDLable.Size = New System.Drawing.Size(21, 13)
+        Me.ConsoleIDLable.Size = New System.Drawing.Size(72, 13)
         Me.ConsoleIDLable.TabIndex = 69
-        Me.ConsoleIDLable.Text = "ID:"
+        Me.ConsoleIDLable.Text = "Mac Address:"
         '
         'SerialLable
         '
         Me.SerialLable.AutoSize = True
         Me.SerialLable.BackColor = System.Drawing.Color.Transparent
-        Me.SerialLable.Enabled = False
         Me.SerialLable.ForeColor = System.Drawing.Color.Black
-        Me.SerialLable.Location = New System.Drawing.Point(188, 200)
+        Me.SerialLable.Location = New System.Drawing.Point(206, 176)
         Me.SerialLable.Name = "SerialLable"
         Me.SerialLable.Size = New System.Drawing.Size(36, 13)
         Me.SerialLable.TabIndex = 63
         Me.SerialLable.Text = "Serial:"
         '
-        'KVTypeLable
-        '
-        Me.KVTypeLable.AutoSize = True
-        Me.KVTypeLable.BackColor = System.Drawing.Color.Transparent
-        Me.KVTypeLable.Enabled = False
-        Me.KVTypeLable.ForeColor = System.Drawing.Color.Black
-        Me.KVTypeLable.Location = New System.Drawing.Point(188, 176)
-        Me.KVTypeLable.Name = "KVTypeLable"
-        Me.KVTypeLable.Size = New System.Drawing.Size(51, 13)
-        Me.KVTypeLable.TabIndex = 58
-        Me.KVTypeLable.Text = "KV Type:"
-        '
         'DVDTypeLable
         '
         Me.DVDTypeLable.AutoSize = True
         Me.DVDTypeLable.BackColor = System.Drawing.Color.Transparent
-        Me.DVDTypeLable.Enabled = False
         Me.DVDTypeLable.ForeColor = System.Drawing.Color.Black
-        Me.DVDTypeLable.Location = New System.Drawing.Point(188, 254)
+        Me.DVDTypeLable.Location = New System.Drawing.Point(152, 254)
         Me.DVDTypeLable.Name = "DVDTypeLable"
-        Me.DVDTypeLable.Size = New System.Drawing.Size(60, 13)
+        Me.DVDTypeLable.Size = New System.Drawing.Size(90, 13)
         Me.DVDTypeLable.TabIndex = 57
-        Me.DVDTypeLable.Text = "DVD Type:"
+        Me.DVDTypeLable.Text = "Hard Drive Serial:"
         '
         'DVDKeyLable
         '
         Me.DVDKeyLable.AutoSize = True
         Me.DVDKeyLable.BackColor = System.Drawing.Color.Transparent
-        Me.DVDKeyLable.Enabled = False
         Me.DVDKeyLable.ForeColor = System.Drawing.Color.Black
-        Me.DVDKeyLable.Location = New System.Drawing.Point(188, 227)
+        Me.DVDKeyLable.Location = New System.Drawing.Point(154, 228)
         Me.DVDKeyLable.Name = "DVDKeyLable"
-        Me.DVDKeyLable.Size = New System.Drawing.Size(54, 13)
+        Me.DVDKeyLable.Size = New System.Drawing.Size(88, 13)
         Me.DVDKeyLable.TabIndex = 55
-        Me.DVDKeyLable.Text = "DVD Key:"
+        Me.DVDKeyLable.Text = "Hard Drive Type:"
         '
         'InfoNandLable
         '
@@ -750,53 +676,53 @@ Partial Class Main
         Me.GetInfoButton.Text = "Load Info"
         Me.GetInfoButton.UseVisualStyleBackColor = True
         '
-        'DVDType
+        'HDDSerial
         '
-        Me.DVDType.BackColor = System.Drawing.Color.White
-        Me.DVDType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DVDType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DVDType.ForeColor = System.Drawing.Color.Black
-        Me.DVDType.Location = New System.Drawing.Point(254, 250)
-        Me.DVDType.Name = "DVDType"
-        Me.DVDType.ReadOnly = True
-        Me.DVDType.Size = New System.Drawing.Size(258, 21)
-        Me.DVDType.TabIndex = 62
+        Me.HDDSerial.BackColor = System.Drawing.Color.White
+        Me.HDDSerial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.HDDSerial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HDDSerial.ForeColor = System.Drawing.Color.Black
+        Me.HDDSerial.Location = New System.Drawing.Point(254, 250)
+        Me.HDDSerial.Name = "HDDSerial"
+        Me.HDDSerial.ReadOnly = True
+        Me.HDDSerial.Size = New System.Drawing.Size(258, 21)
+        Me.HDDSerial.TabIndex = 62
         '
-        'SerialNumber
+        'ConsoleMotherboard
         '
-        Me.SerialNumber.BackColor = System.Drawing.Color.White
-        Me.SerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SerialNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SerialNumber.Location = New System.Drawing.Point(254, 198)
-        Me.SerialNumber.MaxLength = 12
-        Me.SerialNumber.Name = "SerialNumber"
-        Me.SerialNumber.ReadOnly = True
-        Me.SerialNumber.Size = New System.Drawing.Size(98, 21)
-        Me.SerialNumber.TabIndex = 64
+        Me.ConsoleMotherboard.BackColor = System.Drawing.Color.White
+        Me.ConsoleMotherboard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ConsoleMotherboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ConsoleMotherboard.Location = New System.Drawing.Point(255, 172)
+        Me.ConsoleMotherboard.MaxLength = 12
+        Me.ConsoleMotherboard.Name = "ConsoleMotherboard"
+        Me.ConsoleMotherboard.ReadOnly = True
+        Me.ConsoleMotherboard.Size = New System.Drawing.Size(129, 21)
+        Me.ConsoleMotherboard.TabIndex = 64
         '
-        'DVDKey
+        'HDDBrand
         '
-        Me.DVDKey.BackColor = System.Drawing.Color.White
-        Me.DVDKey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DVDKey.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DVDKey.Location = New System.Drawing.Point(254, 224)
-        Me.DVDKey.MaxLength = 32
-        Me.DVDKey.Name = "DVDKey"
-        Me.DVDKey.ReadOnly = True
-        Me.DVDKey.Size = New System.Drawing.Size(258, 21)
-        Me.DVDKey.TabIndex = 61
+        Me.HDDBrand.BackColor = System.Drawing.Color.White
+        Me.HDDBrand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.HDDBrand.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HDDBrand.Location = New System.Drawing.Point(254, 224)
+        Me.HDDBrand.MaxLength = 32
+        Me.HDDBrand.Name = "HDDBrand"
+        Me.HDDBrand.ReadOnly = True
+        Me.HDDBrand.Size = New System.Drawing.Size(258, 21)
+        Me.HDDBrand.TabIndex = 61
         '
-        'MFRDate
+        'LowestDowngradeVer
         '
-        Me.MFRDate.BackColor = System.Drawing.Color.White
-        Me.MFRDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MFRDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MFRDate.ForeColor = System.Drawing.Color.Black
-        Me.MFRDate.Location = New System.Drawing.Point(253, 277)
-        Me.MFRDate.Name = "MFRDate"
-        Me.MFRDate.ReadOnly = True
-        Me.MFRDate.Size = New System.Drawing.Size(74, 21)
-        Me.MFRDate.TabIndex = 71
+        Me.LowestDowngradeVer.BackColor = System.Drawing.Color.White
+        Me.LowestDowngradeVer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LowestDowngradeVer.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LowestDowngradeVer.ForeColor = System.Drawing.Color.Black
+        Me.LowestDowngradeVer.Location = New System.Drawing.Point(253, 277)
+        Me.LowestDowngradeVer.Name = "LowestDowngradeVer"
+        Me.LowestDowngradeVer.ReadOnly = True
+        Me.LowestDowngradeVer.Size = New System.Drawing.Size(49, 21)
+        Me.LowestDowngradeVer.TabIndex = 71
         '
         'ConsoleRegion
         '
@@ -814,7 +740,6 @@ Partial Class Main
         '
         Me.RegionLable.AutoSize = True
         Me.RegionLable.BackColor = System.Drawing.Color.Transparent
-        Me.RegionLable.Enabled = False
         Me.RegionLable.ForeColor = System.Drawing.Color.Black
         Me.RegionLable.Location = New System.Drawing.Point(390, 176)
         Me.RegionLable.Name = "RegionLable"
@@ -1284,25 +1209,20 @@ Partial Class Main
     Friend WithEvents SelectDiff As System.Windows.Forms.OpenFileDialog
     Friend WithEvents DownloadRogero450CFW As System.Windows.Forms.Button
     Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
-    Friend WithEvents CBVersion As System.Windows.Forms.TextBox
-    Friend WithEvents ConsoleID As System.Windows.Forms.TextBox
-    Friend WithEvents KVType As System.Windows.Forms.TextBox
+    Friend WithEvents MACAddress As System.Windows.Forms.TextBox
     Friend WithEvents NandInfoFile As System.Windows.Forms.TextBox
-    Friend WithEvents ConsoleTypeLable As System.Windows.Forms.Label
-    Friend WithEvents CBVersionLable As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ConsoleIDLable As System.Windows.Forms.Label
     Friend WithEvents SerialLable As System.Windows.Forms.Label
-    Friend WithEvents KVTypeLable As System.Windows.Forms.Label
     Friend WithEvents DVDTypeLable As System.Windows.Forms.Label
     Friend WithEvents DVDKeyLable As System.Windows.Forms.Label
     Friend WithEvents InfoNandLable As System.Windows.Forms.Label
     Friend WithEvents InfoNandSelect As System.Windows.Forms.Button
     Friend WithEvents GetInfoButton As System.Windows.Forms.Button
-    Friend WithEvents DVDType As System.Windows.Forms.TextBox
-    Friend WithEvents SerialNumber As System.Windows.Forms.TextBox
-    Friend WithEvents DVDKey As System.Windows.Forms.TextBox
-    Friend WithEvents MFRDate As System.Windows.Forms.TextBox
+    Friend WithEvents HDDSerial As System.Windows.Forms.TextBox
+    Friend WithEvents ConsoleMotherboard As System.Windows.Forms.TextBox
+    Friend WithEvents HDDBrand As System.Windows.Forms.TextBox
+    Friend WithEvents LowestDowngradeVer As System.Windows.Forms.TextBox
     Friend WithEvents ConsoleRegion As System.Windows.Forms.TextBox
     Friend WithEvents RegionLable As System.Windows.Forms.Label
     Friend WithEvents SaveNandInfoButton As System.Windows.Forms.PictureBox

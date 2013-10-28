@@ -737,18 +737,53 @@ Public Class Main
     End Function
 #End Region
 
+    
+  
+
+
+
     Private Sub GetInfoButton_Click(sender As Object, e As EventArgs) Handles GetInfoButton.Click
+
         If File.Exists(NandInfoFile.Text) = False Then
             MsgBox("Cannot Find Selected Nand File")
         Else
             File.Copy(NandInfoFile.Text, "NandInfo.bin", True)
+            Try
 
+                Dim NandReaderBinary As New BinaryReader(File.Open("NandInfo.bin", FileMode.Open))
+
+                NandReaderBinary.BaseStream.Position = &HF20234
+                HDDSerial.Text = System.Text.Encoding.ASCII.GetString(NandReaderBinary.ReadBytes(12))
+
+                NandReaderBinary.BaseStream.Position = &HF20204
+                HDDBrand.Text = System.Text.Encoding.ASCII.GetString(NandReaderBinary.ReadBytes(18))
+
+                NandReaderBinary.BaseStream.Position = &H3F040
+                MACAddress.Text = BitConverter.ToString(NandReaderBinary.ReadBytes(6))
+
+                NandReaderBinary.BaseStream.Position = &H27E75C
+                ConsoleRegion.Text = System.Text.Encoding.ASCII.GetString(NandReaderBinary.ReadBytes(3))
+
+                NandReaderBinary.BaseStream.Position = &H1BF27A
+                LowestDowngradeVer.Text = System.Text.Encoding.ASCII.GetString(NandReaderBinary.ReadBytes(3)).Insert(1, ".")
+
+                NandReaderBinary.Close()
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
 
 
 
 
             SaveNandInfoButton.Visible = True
+            Try
+                If File.Exists("NandInfo.bin") = True Then
+                    File.Delete("NandInfo.bin")
+                End If
+            Catch
+            End Try
         End If
+
     End Sub
 
     Private Sub SaveNandInfoButton_Click(sender As Object, e As EventArgs) Handles SaveNandInfoButton.Click
@@ -764,14 +799,14 @@ Public Class Main
             MsgBox("No Save Location Was Selected")
         Else
             SaveInfo = New StreamWriter(SaveFile.FileName)
-            SaveInfo.WriteLine("CPU Key: " & InfoCPUKey.Text)
-            SaveInfo.WriteLine("DVD Key: " & DVDKey.Text)
-            SaveInfo.WriteLine("DVD Type: " & DVDType.Text)
-            SaveInfo.WriteLine("Console ID: " & ConsoleID.Text)
-            SaveInfo.WriteLine("Serial #: " & SerialNumber.Text)
+            SaveInfo.WriteLine("CPU Key: ")
+            SaveInfo.WriteLine("DVD Key: " & HDDBrand.Text)
+            SaveInfo.WriteLine("DVD Type: " & HDDSerial.Text)
+            SaveInfo.WriteLine("Console ID: " & MACAddress.Text)
+            SaveInfo.WriteLine("Serial #: " & ConsoleMotherboard.Text)
             SaveInfo.WriteLine("Region: " & ConsoleRegion.Text)
-            SaveInfo.WriteLine("Manufacture Date: " & MFRDate.Text)
-            SaveInfo.WriteLine("Console Type: " & ConsoleTypeLable.Text)
+            SaveInfo.WriteLine("Manufacture Date: " & LowestDowngradeVer.Text)
+            SaveInfo.WriteLine("Console Type: ")
             SaveInfo.Close()
             SaveFile.FileName = ""
         End If
@@ -802,20 +837,19 @@ Public Class Main
     End Sub
 
     Private Sub ClearInfo()
-        DVDType.Text = ""
-        ConsoleID.Text = ""
-        MFRDate.Text = ""
-        DVDKey.Text = ""
+        HDDSerial.Text = ""
+        MACAddress.Text = ""
+        LowestDowngradeVer.Text = ""
+        HDDBrand.Text = ""
         ConsoleRegion.Text = ""
-        KVType.Text = ""
-        SerialNumber.Text = ""
-        ConsoleTypeLable.Text = ""
-        CBVersion.Text = ""
+        ConsoleMotherboard.Text = ""
         SaveNandInfoButton.Visible = False
-
-        If File.Exists("NandInfo.bin") = True Then
-            File.Delete("NandInfo.bin")
-        End If
+        Try
+            If File.Exists("NandInfo.bin") = True Then
+                File.Delete("NandInfo.bin")
+            End If
+        Catch
+        End Try
     End Sub
 
 
