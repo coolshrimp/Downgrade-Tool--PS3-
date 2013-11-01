@@ -77,9 +77,7 @@ Partial Class Main
         Me.LowestDowngradeVer = New System.Windows.Forms.TextBox()
         Me.ConsoleRegion = New System.Windows.Forms.TextBox()
         Me.RegionLable = New System.Windows.Forms.Label()
-        Me.SaveNandInfoButton = New System.Windows.Forms.PictureBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.PreviewImage = New System.Windows.Forms.PictureBox()
         Me.ImageSelection = New System.Windows.Forms.ComboBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -110,6 +108,10 @@ Partial Class Main
         Me.LogoImg = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.SaveNandInfoButton = New System.Windows.Forms.PictureBox()
+        Me.PreviewImage = New System.Windows.Forms.PictureBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.dumpcount = New System.Windows.Forms.NumericUpDown()
         Me.TabControl1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         Me.GroupBox11.SuspendLayout()
@@ -121,9 +123,7 @@ Partial Class Main
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TabPage6.SuspendLayout()
-        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
-        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox13.SuspendLayout()
@@ -135,6 +135,9 @@ Partial Class Main
         CType(Me.LogoImg, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dumpcount, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SelectFile
@@ -190,15 +193,17 @@ Partial Class Main
         '
         'GroupBox11
         '
+        Me.GroupBox11.Controls.Add(Me.dumpcount)
+        Me.GroupBox11.Controls.Add(Me.Label7)
         Me.GroupBox11.Controls.Add(Me.NandVerifyCHK)
         Me.GroupBox11.Controls.Add(Me.NandLength)
         Me.GroupBox11.Controls.Add(Me.NandOffset)
         Me.GroupBox11.Controls.Add(Me.Label5)
         Me.GroupBox11.Controls.Add(Me.Label4)
         Me.GroupBox11.Controls.Add(Me.NandAdvancedCHK)
-        Me.GroupBox11.Location = New System.Drawing.Point(419, 260)
+        Me.GroupBox11.Location = New System.Drawing.Point(419, 212)
         Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(317, 103)
+        Me.GroupBox11.Size = New System.Drawing.Size(317, 151)
         Me.GroupBox11.TabIndex = 80
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Advanced Settings"
@@ -263,7 +268,7 @@ Partial Class Main
         Me.GroupBox8.Controls.Add(Me.NandJoinSplit)
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox8.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.GroupBox8.Location = New System.Drawing.Point(485, 169)
+        Me.GroupBox8.Location = New System.Drawing.Point(484, 149)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(189, 57)
         Me.GroupBox8.TabIndex = 74
@@ -747,17 +752,6 @@ Partial Class Main
         Me.RegionLable.TabIndex = 56
         Me.RegionLable.Text = "Reigon:"
         '
-        'SaveNandInfoButton
-        '
-        Me.SaveNandInfoButton.BackgroundImage = Global.Downgrade_Tool.My.Resources.Resources.save
-        Me.SaveNandInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.SaveNandInfoButton.Location = New System.Drawing.Point(468, 281)
-        Me.SaveNandInfoButton.Name = "SaveNandInfoButton"
-        Me.SaveNandInfoButton.Size = New System.Drawing.Size(44, 44)
-        Me.SaveNandInfoButton.TabIndex = 77
-        Me.SaveNandInfoButton.TabStop = False
-        Me.SaveNandInfoButton.Visible = False
-        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.PreviewImage)
@@ -768,16 +762,6 @@ Partial Class Main
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Images"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'PreviewImage
-        '
-        Me.PreviewImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PreviewImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PreviewImage.Location = New System.Drawing.Point(9, 37)
-        Me.PreviewImage.Name = "PreviewImage"
-        Me.PreviewImage.Size = New System.Drawing.Size(727, 325)
-        Me.PreviewImage.TabIndex = 1
-        Me.PreviewImage.TabStop = False
         '
         'ImageSelection
         '
@@ -1089,6 +1073,44 @@ Partial Class Main
         Me.PictureBox1.TabIndex = 70
         Me.PictureBox1.TabStop = False
         '
+        'SaveNandInfoButton
+        '
+        Me.SaveNandInfoButton.BackgroundImage = Global.Downgrade_Tool.My.Resources.Resources.save
+        Me.SaveNandInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SaveNandInfoButton.Location = New System.Drawing.Point(468, 281)
+        Me.SaveNandInfoButton.Name = "SaveNandInfoButton"
+        Me.SaveNandInfoButton.Size = New System.Drawing.Size(44, 44)
+        Me.SaveNandInfoButton.TabIndex = 77
+        Me.SaveNandInfoButton.TabStop = False
+        Me.SaveNandInfoButton.Visible = False
+        '
+        'PreviewImage
+        '
+        Me.PreviewImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PreviewImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PreviewImage.Location = New System.Drawing.Point(9, 37)
+        Me.PreviewImage.Name = "PreviewImage"
+        Me.PreviewImage.Size = New System.Drawing.Size(727, 325)
+        Me.PreviewImage.TabIndex = 1
+        Me.PreviewImage.TabStop = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 105)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 13)
+        Me.Label7.TabIndex = 85
+        Me.Label7.Text = "Dumpcount:"
+        '
+        'dumpcount
+        '
+        Me.dumpcount.Location = New System.Drawing.Point(77, 103)
+        Me.dumpcount.Name = "dumpcount"
+        Me.dumpcount.Size = New System.Drawing.Size(53, 20)
+        Me.dumpcount.TabIndex = 86
+        Me.dumpcount.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1120,9 +1142,7 @@ Partial Class Main
         Me.GroupBox4.ResumeLayout(False)
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage6.PerformLayout()
-        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
-        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
@@ -1135,6 +1155,9 @@ Partial Class Main
         CType(Me.LogoImg, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaveNandInfoButton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PreviewImage, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dumpcount, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1226,4 +1249,6 @@ Partial Class Main
     Friend WithEvents ConsoleRegion As System.Windows.Forms.TextBox
     Friend WithEvents RegionLable As System.Windows.Forms.Label
     Friend WithEvents SaveNandInfoButton As System.Windows.Forms.PictureBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents dumpcount As System.Windows.Forms.NumericUpDown
 End Class

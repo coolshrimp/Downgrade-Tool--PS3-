@@ -62,7 +62,13 @@ Public Class Main
         Else
             MakeCMD = New StreamWriter("CMD.bat", False)
             MakeCMD.WriteLine("@echo off")
-            MakeCMD.WriteLine(NandCommand & ComPort & NandNumber & "dump OFW.bin" & NandReadOffset) 'Do Read Command in CMD Prompt
+            If dumpcount.Value <= 1 Then
+                MakeCMD.WriteLine(NandCommand & ComPort & NandNumber & "dump OFW.bin" & NandReadOffset) 'Do Read Command in CMD Prompt
+            Else
+                For i As Integer = 0 To dumpcount.Value
+                    MakeCMD.WriteLine("{0}{1}{2}dump OFW{4}.bin{3}", NandCommand, ComPort, NandNumber, NandReadOffset, i) 'Do Read Command in CMD Prompt
+                Next
+            End If
             MakeCMD.WriteLine(NandCommand & ComPort & NandNumber & "release") 'Do Read Command in CMD Prompt
             MakeCMD.WriteLine("pause")
             MakeCMD.Close()
