@@ -36,7 +36,7 @@ Public Class WebFileDownloader
         End Try
     End Function
     Public Function DownloadFileWithProgress(ByVal URL As String, ByVal Location As String) As Boolean
-        Dim FS As FileStream
+        Dim fs = New FileStream(Location, FileMode.Create, FileAccess.Write)
         Try
             mCurrentFile = GetFileName(URL)
             Dim wRemote As WebRequest
@@ -44,15 +44,13 @@ Public Class WebFileDownloader
             ReDim bBuffer(256)
             Dim iBytesRead As Integer
             Dim iTotalBytesRead As Integer
-
-            FS = New FileStream(Location, FileMode.Create, FileAccess.Write)
             wRemote = WebRequest.Create(URL)
             Dim myWebResponse As WebResponse = wRemote.GetResponse
             RaiseEvent FileDownloadSizeObtained(myWebResponse.ContentLength)
             Dim sChunks As Stream = myWebResponse.GetResponseStream
             Do
                 iBytesRead = sChunks.Read(bBuffer, 0, 256)
-                FS.Write(bBuffer, 0, iBytesRead)
+                fs.Write(bBuffer, 0, iBytesRead)
                 iTotalBytesRead += iBytesRead
                 If myWebResponse.ContentLength < iTotalBytesRead Then
                     RaiseEvent AmountDownloadedChanged(myWebResponse.ContentLength)
@@ -61,13 +59,13 @@ Public Class WebFileDownloader
                 End If
             Loop While Not iBytesRead = 0
             sChunks.Close()
-            FS.Close()
+            fs.Close()
             RaiseEvent FileDownloadComplete()
             Return True
         Catch ex As Exception
-            If Not (FS Is Nothing) Then
-                FS.Close()
-                FS = Nothing
+            If Not fs Is Nothing Then
+                fs.Close()
+                fs = Nothing
             End If
             RaiseEvent FileDownloadFailed(ex)
             Return False
@@ -90,6 +88,7 @@ Public Class WebFileDownloader
                     Case Is < 10000000
                         Return (Size / MB / KB).ToString("N") & "GB"
                 End Select
+                Return (Size.ToString("D") & " bytes")
             End If
         Catch ex As Exception
             Return Size.ToString
